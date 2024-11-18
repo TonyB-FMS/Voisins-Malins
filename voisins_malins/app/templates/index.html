@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Voisins Malins</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/login/">Se connecter</a></li>
+                <li><a href="/signup/">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Bienvenue sur Voisins Malins</h1>
+            <p>Échangez vos compétences avec vos voisins et trouvez de l'aide pour vos activités.</p>
+        </section>
+
+        <section class="skills">
+            <h2>Nos compétences</h2>
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="available-slots">
+            <h2>Créneaux disponibles pour de l'aide</h2>
+            <ul>
+                {% for slot in available_slots %}
+                    <li>{{ slot.date }} - Disponibilité: {% if slot.is_available %}Oui{% else %}Non{% endif %}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Voisins Malins</p>
+    </footer>
+</body>
+</html>
