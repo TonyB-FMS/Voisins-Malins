@@ -4,8 +4,6 @@ __pycache__/
 *$py.class
 
 # Django stuff:
-*.sqlite3
-db.sqlite3
 *.pyc
 
 # Environment variables
