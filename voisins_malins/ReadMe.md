@@ -61,6 +61,9 @@ Lancez le serveur de développement pour voir l'application en action :
 _python manage.py runserver_
 Accédez ensuite à http://127.0.0.1:8000/ dans votre navigateur pour voir l'application.
 
+## Identifiants des comptes utilisateur
+- admin / fmsfmsfms
+
 ## Structure du projet
 
 Voici un aperçu des dossiers et fichiers principaux du projet :
