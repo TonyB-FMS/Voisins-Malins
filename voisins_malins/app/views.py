@@ -4,10 +4,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Skill, TimeSlot, AuthenticatedUser
 
+
+def home(request):
+    """Affiche la page d'accueil."""
+    return render(request, 'index.html')
+
+
 def index(request):
     skills = Skill.objects.all()
     available_slots = TimeSlot.objects.filter(is_available=True)
     return render(request, 'index.html', {'skills': skills, 'available_slots': available_slots})
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -21,6 +28,7 @@ def login_view(request):
             # Add login error message
             pass
     return render(request, 'login.html')
+
 
 def signup_view(request):
     if request.method == 'POST':
