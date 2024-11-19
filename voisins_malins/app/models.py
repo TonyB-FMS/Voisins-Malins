@@ -47,6 +47,9 @@ class AuthenticatedUser(Visitor):
     password = models.CharField(max_length=128)
     skills = models.ManyToManyField('Skill', blank=True)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
     def add_skill(self, skill):
         """
         Ajoute une compétence à l'utilisateur.
