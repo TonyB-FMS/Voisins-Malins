@@ -5,15 +5,12 @@ from django.contrib.auth.models import User
 from .models import Skill, TimeSlot, AuthenticatedUser
 
 
-def home(request):
-    """Affiche la page d'accueil."""
-    return render(request, 'index.html')
-
-
 def index(request):
+    """Affiche la page d'accueil."""
     skills = Skill.objects.all()
     available_slots = TimeSlot.objects.filter(is_available=True)
-    return render(request, 'index.html', {'skills': skills, 'available_slots': available_slots})
+    return render(request, 'index.html',
+                  {'skills': skills, 'available_slots': available_slots})
 
 
 def login_view(request):
