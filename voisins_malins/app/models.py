@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+import datetime
 
 
 class Visitor(models.Model):
@@ -110,7 +111,7 @@ class TimeSlot(models.Model):
     Modèle représentant un créneau horaire durant lequel un utilisateur est disponible pour aider.
     """
     date = models.DateField()
-    is_available = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         """
@@ -126,7 +127,7 @@ class TimeSlot(models.Model):
 
         :raises ValidationError: Si la date du créneau est dans le passé.
         """
-        if self.date < models.DateField.today():
+        if self.date < datetime.date.today():
             raise ValidationError(_("La date du créneau horaire ne peut pas être dans le passé"))
 
 
